@@ -1,3 +1,8 @@
 class Player < ActiveRecord::Base
-  has_and_belongs_to_many :clubs, :join_table => "clubs_players" 
+  has_many :clubs_players
+  has_many :clubs, through: :clubs_players
+
+  def has_club?(club)
+    clubs.exists?(id: club.id)
+  end
 end

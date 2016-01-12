@@ -1,5 +1,5 @@
 <% @clubs.each do |club| %>
-  <div class='club row'>
+  <div class='club row <%= "chosen" if current_user.has_club?(club) %>'>
     <h4 class='col-lg-2'><%= club.name %> <small><%= club.category %></small></h4>
     <p class='col-lg-9'>
       <%= Faker::Lorem.paragraph %>

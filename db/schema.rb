@@ -21,13 +21,12 @@ ActiveRecord::Schema.define(version: 20150826023729) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "clubs_players", id: false, force: :cascade do |t|
-    t.integer "player_id", null: false
-    t.integer "club_id",   null: false
+  create_table "clubs_players", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "clubs_players", ["club_id"], name: "index_clubs_players_on_club_id"
-  add_index "clubs_players", ["player_id"], name: "index_clubs_players_on_player_id"
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
